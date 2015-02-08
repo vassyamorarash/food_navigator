@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 08 2015 г., 21:51
+-- Время создания: Фев 08 2015 г., 22:42
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.3.29
 
@@ -113,11 +113,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `first_name` varchar(50) NOT NULL,
   `second_name` varchar(50) NOT NULL,
   `avatar_id` int(10) unsigned DEFAULT NULL,
-  `type` set('admin','user') NOT NULL,
+  `type` set('admin','user') NOT NULL DEFAULT 'user',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `avatar_id` (`avatar_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `users`
