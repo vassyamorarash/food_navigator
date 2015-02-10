@@ -20,6 +20,28 @@ return array(
                     ),
                 ),
             ),
+            'users' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/users',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'Application\Controller',
+                        'controller'    => 'Users',
+                        'action'        => 'index',
+                    ),
+                ),
+            ),
+            'users-add' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/users/add',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'Application\Controller',
+                        'controller'    => 'Users',
+                        'action'        => 'add',
+                    ),
+                ),
+            ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -52,6 +74,9 @@ return array(
             ),
         ),
     ),
+
+
+
     'service_manager' => array(
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
@@ -73,7 +98,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Users' => 'Application\Controller\UsersController'
         ),
     ),
     'view_manager' => array(

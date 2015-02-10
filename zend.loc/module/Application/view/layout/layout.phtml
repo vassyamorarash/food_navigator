@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php echo $this->headTitle('FootNavi')?>
 
         <?php echo $this->headMeta()
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
@@ -11,10 +11,8 @@
         ?>
 
         <!-- Le styles -->
-        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
-                        ->prependStylesheet($this->basePath() . '/css/style.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/knife_and_fork_logo.ico'))
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap.css') ?>
 
         <!-- Scripts -->
         <?php echo $this->headScript()
@@ -26,30 +24,77 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
+
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Foot navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath('img/zf2-logo.png') ?>" alt="Zend Framework 2"/>&nbsp;<?php echo $this->translate('Skeleton Application') ?></a>
+                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('FoodNavi') ?></a>
+
                 </div>
-                <div class="collapse navbar-collapse">
+
+                <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+                        <li  ><a href="<?php echo $this->url('home') ?>"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><?php echo $this->translate('Places') ?> <span class="caret"></span></a>
+                            <ul class="dropdown-menu" aria-labelledby="themes">
+                                <li><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Best Rating') ?></a></li>
+                                <li ><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Closest') ?></a></li>
+                                <li class="divider"></li>
+                                <li ><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Restaurant') ?></a></li>
+                                <li ><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Pizzeria') ?></a></li>
+                                <li ><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Fast Food') ?></a></li>
+                                <li ><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Bar') ?></a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </div><!--/.nav-collapse -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li  ><a href="<?php echo $this->url('users') ?>"><span class="glyphicon glyphicon-user"></span></a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control col-lg-8" placeholder="Search">
+                    </form>
+                </div>
+
             </div>
+
         </nav>
+
+
         <div class="container">
-            <?php echo $this->content; ?>
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="panel panel-default panel-body">
+                        <div>
+                            <?php echo $this->content; ?>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
             <hr>
-            <footer>
-                <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
-            </footer>
+            <div class="panel panel-footer">
+                <p>&copy; <?php echo date('Y') ?> by Quine Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
+            </div>
         </div> <!-- /container -->
-        <?php echo $this->inlineScript() ?>
+        <?php //echo $this->inlineScript() ?>
     </body>
 </html>
