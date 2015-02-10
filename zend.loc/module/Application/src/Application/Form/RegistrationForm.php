@@ -16,7 +16,7 @@ class RegistrationForm extends Form
     {
         // we want to ignore the name passed
         parent::__construct('users');
-
+        $this->setName('registraton');
         $this->add(array(
             'name' => 'login',
             'type' => 'Text',

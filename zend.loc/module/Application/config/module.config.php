@@ -21,9 +21,24 @@ return array(
                 ),
             ),
             'users' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/users[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\users',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+
+          /*  'users' => array(
                 'type' => 'Segment',
                 'options' => array(
-                    'route' => '/users',
+                    'route' => '/users[/:action][/:action]',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Application\Controller',
                         'controller'    => 'Users',
@@ -41,7 +56,7 @@ return array(
                         'action'        => 'add',
                     ),
                 ),
-            ),
+            ),*/
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them

@@ -17,6 +17,7 @@ use Application\Form\RegistrationForm;
 class UsersController extends AbstractActionController
 {
     protected $usersTable;
+
     public function getUsersTable()
     {
         if (!$this->usersTable) {
@@ -53,5 +54,9 @@ class UsersController extends AbstractActionController
             }
         }
         return array('form' => $form);
+    }
+    public function editAction(){
+
+         return new ViewModel();
     }
 }
